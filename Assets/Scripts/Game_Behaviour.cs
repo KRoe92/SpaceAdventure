@@ -76,6 +76,9 @@ public class Game_Behaviour : MonoBehaviour {
 				reward.SetActive (true);
 			else
 				reward2.SetActive (true);
+
+			paused = true;
+			
 		}
 
 	}
@@ -170,6 +173,11 @@ public class Game_Behaviour : MonoBehaviour {
 	public void reloadLevel()
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
+
+	public void backToMap()
+	{
+		StartCoroutine ("loadMap");
 	}
 
 	IEnumerator loadMap()
