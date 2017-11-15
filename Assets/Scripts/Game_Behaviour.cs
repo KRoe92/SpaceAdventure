@@ -172,8 +172,9 @@ public class Game_Behaviour : MonoBehaviour {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
 
-	public void loadMap()
+	IEnumerator loadMap()
 	{
+		yield return new WaitForSeconds (2.5f);
 		SceneManager.LoadScene ("Map");
 	}
 
@@ -182,7 +183,7 @@ public class Game_Behaviour : MonoBehaviour {
 		Game_Info.AsteroidGone = true;
 		Game_Info.MarkerNum = 2;
 		Game_Info.Money = 1000;
-		loadMap ();
+		StartCoroutine ("loadMap");
 	}
 
 	public void gameSuccess2()
@@ -191,7 +192,7 @@ public class Game_Behaviour : MonoBehaviour {
 		Game_Info.EngineUnlocked = true;
 		Game_Info.MarkerNum = 3;
 		Game_Info.Money = 0;
-		loadMap ();
+		StartCoroutine ("loadMap");
 	}
 
 }

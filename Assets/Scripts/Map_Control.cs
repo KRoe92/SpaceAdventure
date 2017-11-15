@@ -85,7 +85,25 @@ public class Map_Control : MonoBehaviour {
 
 	public void loadLevel(string lev)
 	{
-		SceneManager.LoadScene (lev);
+		
+		StartCoroutine ("load");
+	}
+
+	public void endGame()
+	{
+		StartCoroutine ("closeMap");
+	}
+
+	IEnumerator load()
+	{
+		yield return new WaitForSeconds (2.5f);
+		SceneManager.LoadScene ("InGame");
+	}
+
+	IEnumerator closeMap()
+	{
+		yield return new WaitForSeconds (2.5f);
+		Application.Quit ();
 	}
 		
 }
